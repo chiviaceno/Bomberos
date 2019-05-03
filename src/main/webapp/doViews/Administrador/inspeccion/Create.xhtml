@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InspeccionCreateDlg" widgetVar="InspeccionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInspeccionTitle}">
+            <h:form id="InspeccionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="1" rendered="#{inspeccionController.selected != null}">
+                        <p:panelGrid columns="4">
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idInspeccion}" for="idInspeccion" />
+                        <p:inputText id="idInspeccion" value="#{inspeccionController.selected.idInspeccion}" title="#{bundle.CreateInspeccionTitle_idInspeccion}" required="true" requiredMessage="#{bundle.CreateInspeccionRequiredMessage_idInspeccion}"/>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idEmpleado}" for="idEmpleado" />
+                        <p:inputText id="idEmpleado" value="#{inspeccionController.selected.idEmpleado}" title="#{bundle.CreateInspeccionTitle_idEmpleado}" />
+                        </p:panelGrid>
+                        
+                        <p:panelGrid columns="6">
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoUno}" for="requisitoUno" />
+                        <p:selectOneMenu id="idRequisitoUno" value="#{inspeccionController.selected.idRequisitoUno}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoUnoItem"
+                                           itemValue="#{idRequisitoUnoItem}"/>
+                        </p:selectOneMenu>
+                        <p:selectOneButton id="requisitoUno" value="#{inspeccionController.selected.requisitoUno}">
+            <f:selectItem itemLabel="Si" itemValue="Si" />
+            <f:selectItem itemLabel="No" itemValue="No" />
+        </p:selectOneButton>
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoDos}" for="requisitoDos" />
+                        <p:inputText id="requisitoDos" value="#{inspeccionController.selected.requisitoDos}" title="#{bundle.CreateInspeccionTitle_requisitoDos}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoTres}" for="requisitoTres" />
+                        <p:inputText id="requisitoTres" value="#{inspeccionController.selected.requisitoTres}" title="#{bundle.CreateInspeccionTitle_requisitoTres}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoCuatro}" for="requisitoCuatro" />
+                        <p:inputText id="requisitoCuatro" value="#{inspeccionController.selected.requisitoCuatro}" title="#{bundle.CreateInspeccionTitle_requisitoCuatro}" />
+                       
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoCinco}" for="requisitoCinco" />
+                        <p:inputText id="requisitoCinco" value="#{inspeccionController.selected.requisitoCinco}" title="#{bundle.CreateInspeccionTitle_requisitoCinco}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoSeis}" for="requisitoSeis" />
+                        <p:inputText id="requisitoSeis" value="#{inspeccionController.selected.requisitoSeis}" title="#{bundle.CreateInspeccionTitle_requisitoSeis}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoSiete}" for="requisitoSiete" />
+                        <p:inputText id="requisitoSiete" value="#{inspeccionController.selected.requisitoSiete}" title="#{bundle.CreateInspeccionTitle_requisitoSiete}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoOcho}" for="requisitoOcho" />
+                        <p:inputText id="requisitoOcho" value="#{inspeccionController.selected.requisitoOcho}" title="#{bundle.CreateInspeccionTitle_requisitoOcho}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoNueve}" for="requisitoNueve" />
+                        <p:inputText id="requisitoNueve" value="#{inspeccionController.selected.requisitoNueve}" title="#{bundle.CreateInspeccionTitle_requisitoNueve}" />
+                       
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoDiez}" for="requisitoDiez" />
+                        <p:inputText id="requisitoDiez" value="#{inspeccionController.selected.requisitoDiez}" title="#{bundle.CreateInspeccionTitle_requisitoDiez}" />
+                       <p:selectOneMenu id="idRequisitoDiez" value="#{inspeccionController.selected.idRequisitoDiez}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoDiezItem"
+                                           itemValue="#{idRequisitoDiezItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoOnce}" for="requisitoOnce" />
+                        <p:inputText id="requisitoOnce" value="#{inspeccionController.selected.requisitoOnce}" title="#{bundle.CreateInspeccionTitle_requisitoOnce}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_requisitoDoce}" for="requisitoDoce" />
+                        <p:inputText id="requisitoDoce" value="#{inspeccionController.selected.requisitoDoce}" title="#{bundle.CreateInspeccionTitle_requisitoDoce}" />
+                        
+                        
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_observaciones}" for="observaciones" />
+                        <p:inputText id="observaciones" value="#{inspeccionController.selected.observaciones}" title="#{bundle.CreateInspeccionTitle_observaciones}" />
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_NSolicitud}" for="NSolicitud" />
+                        <p:inputText id="NSolicitud" value="#{inspeccionController.selected.NSolicitud}" title="#{bundle.CreateInspeccionTitle_NSolicitud}" />
+                        
+                        
+                       
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoOnce}" for="idRequisitoOnce" />
+                        <p:selectOneMenu id="idRequisitoOnce" value="#{inspeccionController.selected.idRequisitoOnce}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoOnceItem"
+                                           itemValue="#{idRequisitoOnceItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoNueve}" for="idRequisitoNueve" />
+                        <p:selectOneMenu id="idRequisitoNueve" value="#{inspeccionController.selected.idRequisitoNueve}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoNueveItem"
+                                           itemValue="#{idRequisitoNueveItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoDoce}" for="idRequisitoDoce" />
+                        <p:selectOneMenu id="idRequisitoDoce" value="#{inspeccionController.selected.idRequisitoDoce}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoDoceItem"
+                                           itemValue="#{idRequisitoDoceItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoDos}" for="idRequisitoDos" />
+                        <p:selectOneMenu id="idRequisitoDos" value="#{inspeccionController.selected.idRequisitoDos}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoDosItem"
+                                           itemValue="#{idRequisitoDosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoTres}" for="idRequisitoTres" />
+                        <p:selectOneMenu id="idRequisitoTres" value="#{inspeccionController.selected.idRequisitoTres}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoTresItem"
+                                           itemValue="#{idRequisitoTresItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoCuatro}" for="idRequisitoCuatro" />
+                        <p:selectOneMenu id="idRequisitoCuatro" value="#{inspeccionController.selected.idRequisitoCuatro}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoCuatroItem"
+                                           itemValue="#{idRequisitoCuatroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoCinco}" for="idRequisitoCinco" />
+                        <p:selectOneMenu id="idRequisitoCinco" value="#{inspeccionController.selected.idRequisitoCinco}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoCincoItem"
+                                           itemValue="#{idRequisitoCincoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoSeis}" for="idRequisitoSeis" />
+                        <p:selectOneMenu id="idRequisitoSeis" value="#{inspeccionController.selected.idRequisitoSeis}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoSeisItem"
+                                           itemValue="#{idRequisitoSeisItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoSiete}" for="idRequisitoSiete" />
+                        <p:selectOneMenu id="idRequisitoSiete" value="#{inspeccionController.selected.idRequisitoSiete}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoSieteItem"
+                                           itemValue="#{idRequisitoSieteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInspeccionLabel_idRequisitoOcho}" for="idRequisitoOcho" />
+                        <p:selectOneMenu id="idRequisitoOcho" value="#{inspeccionController.selected.idRequisitoOcho}" >
+                            <f:selectItems value="#{requisitosInspeccionController.itemsAvailableSelectOne}"
+                                           var="idRequisitoOchoItem"
+                                           itemValue="#{idRequisitoOchoItem}"/>
+                        </p:selectOneMenu>
+                        </p:panelGrid>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inspeccionController.create}" value="#{bundle.Save}" update="display,:InspeccionListForm:datalist,:growl" oncomplete="handleSubmit(args,'InspeccionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InspeccionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

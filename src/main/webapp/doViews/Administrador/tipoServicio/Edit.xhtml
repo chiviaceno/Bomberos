@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoServicioEditDlg" widgetVar="TipoServicioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTipoServicioTitle}">
+            <h:form id="TipoServicioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoServicioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTipoServicioLabel_idTipoServicio}" for="idTipoServicio" />
+                        <p:inputText id="idTipoServicio" value="#{tipoServicioController.selected.idTipoServicio}" title="#{bundle.EditTipoServicioTitle_idTipoServicio}" required="true" requiredMessage="#{bundle.EditTipoServicioRequiredMessage_idTipoServicio}"/>
+                        <p:outputLabel value="#{bundle.EditTipoServicioLabel_tipoServicio}" for="tipoServicio" />
+                        <p:inputText id="tipoServicio" value="#{tipoServicioController.selected.tipoServicio}" title="#{bundle.EditTipoServicioTitle_tipoServicio}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoServicioController.update}" value="#{bundle.Save}" update="display,:TipoServicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipoServicioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoServicioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CuentasEditDlg" widgetVar="CuentasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCuentasTitle}">
+            <h:form id="CuentasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cuentasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_idCuenta}" for="idCuenta" />
+                        <p:inputText id="idCuenta" value="#{cuentasController.selected.idCuenta}" title="#{bundle.EditCuentasTitle_idCuenta}" required="true" requiredMessage="#{bundle.EditCuentasRequiredMessage_idCuenta}"/>
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_idPermiso}" for="idPermiso" />
+                        <p:inputText id="idPermiso" value="#{cuentasController.selected.idPermiso}" title="#{bundle.EditCuentasTitle_idPermiso}" />
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_totalCuenta}" for="totalCuenta" />
+                        <p:inputText id="totalCuenta" value="#{cuentasController.selected.totalCuenta}" title="#{bundle.EditCuentasTitle_totalCuenta}" />
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_ingresoPermiso}" for="ingresoPermiso" />
+                        <p:inputText id="ingresoPermiso" value="#{cuentasController.selected.ingresoPermiso}" title="#{bundle.EditCuentasTitle_ingresoPermiso}" />
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_detalle}" for="detalle" />
+                        <p:inputText id="detalle" value="#{cuentasController.selected.detalle}" title="#{bundle.EditCuentasTitle_detalle}" />
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{cuentasController.selected.fecha}" title="#{bundle.EditCuentasTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{cuentasController.selected.valor}" title="#{bundle.EditCuentasTitle_valor}" />
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_idTipoCuenta}" for="idTipoCuenta" />
+                        <p:selectOneMenu id="idTipoCuenta" value="#{cuentasController.selected.idTipoCuenta}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoCuentaController.itemsAvailableSelectOne}"
+                                           var="idTipoCuentaItem"
+                                           itemValue="#{idTipoCuentaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCuentasLabel_idTipoDocumento}" for="idTipoDocumento" />
+                        <p:selectOneMenu id="idTipoDocumento" value="#{cuentasController.selected.idTipoDocumento}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoDocumentoController.itemsAvailableSelectOne}"
+                                           var="idTipoDocumentoItem"
+                                           itemValue="#{idTipoDocumentoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cuentasController.update}" value="#{bundle.Save}" update="display,:CuentasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CuentasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CuentasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

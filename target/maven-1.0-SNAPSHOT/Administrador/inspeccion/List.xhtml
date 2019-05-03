@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListInspeccionTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="InspeccionListForm">
+                <p:panel header="#{bundle.ListInspeccionTitle}">
+                    <p:dataTable id="datalist" value="#{inspeccionController.items}" var="item"
+                                 selectionMode="single" selection="#{inspeccionController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idInspeccion}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idInspeccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idInspeccion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idEmpleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEmpleado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoUno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoUno}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoDos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoDos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoTres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoTres}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoCuatro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoCuatro}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoCinco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoCinco}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoSeis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoSeis}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoSiete}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoSiete}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoOcho}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoOcho}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoNueve}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoNueve}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoDiez}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoDiez}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoOnce}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoOnce}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_requisitoDoce}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requisitoDoce}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_NSolicitud}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.NSolicitud}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoDiez}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoDiez}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoUno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoUno}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoOnce}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoOnce}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoNueve}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoNueve}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoDoce}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoDoce}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoDos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoDos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoTres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoTres}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoCuatro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoCuatro}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoCinco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoCinco}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoSeis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoSeis}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoSiete}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoSiete}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInspeccionTitle_idRequisitoOcho}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRequisitoOcho}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{inspeccionController.prepareCreate}" update=":InspeccionCreateForm" oncomplete="PF('InspeccionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":InspeccionViewForm" oncomplete="PF('InspeccionViewDialog').show()" disabled="#{empty inspeccionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":InspeccionEditForm" oncomplete="PF('InspeccionEditDialog').show()" disabled="#{empty inspeccionController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{inspeccionController.destroy}" update=":growl,datalist" disabled="#{empty inspeccionController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

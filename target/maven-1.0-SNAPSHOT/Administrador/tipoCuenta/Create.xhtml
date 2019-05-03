@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoCuentaCreateDlg" widgetVar="TipoCuentaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipoCuentaTitle}">
+            <h:form id="TipoCuentaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoCuentaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTipoCuentaLabel_idTipoCuenta}" for="idTipoCuenta" />
+                        <p:inputText id="idTipoCuenta" value="#{tipoCuentaController.selected.idTipoCuenta}" title="#{bundle.CreateTipoCuentaTitle_idTipoCuenta}" required="true" requiredMessage="#{bundle.CreateTipoCuentaRequiredMessage_idTipoCuenta}"/>
+                        <p:outputLabel value="#{bundle.CreateTipoCuentaLabel_nombreTipoCuenta}" for="nombreTipoCuenta" />
+                        <p:inputText id="nombreTipoCuenta" value="#{tipoCuentaController.selected.nombreTipoCuenta}" title="#{bundle.CreateTipoCuentaTitle_nombreTipoCuenta}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoCuentaController.create}" value="#{bundle.Save}" update="display,:TipoCuentaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoCuentaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoCuentaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CuentasViewDlg" widgetVar="CuentasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCuentasTitle}">
+            <h:form id="CuentasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cuentasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCuentasLabel_idCuenta}"/>
+                        <h:outputText value="#{cuentasController.selected.idCuenta}" title="#{bundle.ViewCuentasTitle_idCuenta}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_idPermiso}"/>
+                        <h:outputText value="#{cuentasController.selected.idPermiso}" title="#{bundle.ViewCuentasTitle_idPermiso}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_totalCuenta}"/>
+                        <h:outputText value="#{cuentasController.selected.totalCuenta}" title="#{bundle.ViewCuentasTitle_totalCuenta}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_ingresoPermiso}"/>
+                        <h:outputText value="#{cuentasController.selected.ingresoPermiso}" title="#{bundle.ViewCuentasTitle_ingresoPermiso}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_detalle}"/>
+                        <h:outputText value="#{cuentasController.selected.detalle}" title="#{bundle.ViewCuentasTitle_detalle}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_fecha}"/>
+                        <h:outputText value="#{cuentasController.selected.fecha}" title="#{bundle.ViewCuentasTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_valor}"/>
+                        <h:outputText value="#{cuentasController.selected.valor}" title="#{bundle.ViewCuentasTitle_valor}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_idTipoCuenta}"/>
+                        <h:outputText value="#{cuentasController.selected.idTipoCuenta}" title="#{bundle.ViewCuentasTitle_idTipoCuenta}"/>
+                        <h:outputText value="#{bundle.ViewCuentasLabel_idTipoDocumento}"/>
+                        <h:outputText value="#{cuentasController.selected.idTipoDocumento}" title="#{bundle.ViewCuentasTitle_idTipoDocumento}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CuentasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

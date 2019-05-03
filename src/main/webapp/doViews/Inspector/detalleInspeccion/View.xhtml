@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DetalleInspeccionViewDlg" widgetVar="DetalleInspeccionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDetalleInspeccionTitle}">
+            <h:form id="DetalleInspeccionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{detalleInspeccionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDetalleInspeccionLabel_idDetalleInspeccion}"/>
+                        <h:outputText value="#{detalleInspeccionController.selected.idDetalleInspeccion}" title="#{bundle.ViewDetalleInspeccionTitle_idDetalleInspeccion}"/>
+                        <h:outputText value="#{bundle.ViewDetalleInspeccionLabel_fechaInspeccion}"/>
+                        <h:outputText value="#{detalleInspeccionController.selected.fechaInspeccion}" title="#{bundle.ViewDetalleInspeccionTitle_fechaInspeccion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDetalleInspeccionLabel_idEstadoInspeccion}"/>
+                        <h:outputText value="#{detalleInspeccionController.selected.idEstadoInspeccion}" title="#{bundle.ViewDetalleInspeccionTitle_idEstadoInspeccion}"/>
+                        <h:outputText value="#{bundle.ViewDetalleInspeccionLabel_idInspeccion}"/>
+                        <h:outputText value="#{detalleInspeccionController.selected.idInspeccion}" title="#{bundle.ViewDetalleInspeccionTitle_idInspeccion}"/>
+                        <h:outputText value="#{bundle.ViewDetalleInspeccionLabel_idSolicitudInspeccion}"/>
+                        <h:outputText value="#{detalleInspeccionController.selected.idSolicitudInspeccion}" title="#{bundle.ViewDetalleInspeccionTitle_idSolicitudInspeccion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DetalleInspeccionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

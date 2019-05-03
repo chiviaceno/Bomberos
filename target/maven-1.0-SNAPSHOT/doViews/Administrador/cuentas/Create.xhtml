@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CuentasCreateDlg" widgetVar="CuentasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCuentasTitle}">
+            <h:form id="CuentasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cuentasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_idCuenta}" for="idCuenta" />
+                        <p:inputText id="idCuenta" value="#{cuentasController.selected.idCuenta}" title="#{bundle.CreateCuentasTitle_idCuenta}" required="true" requiredMessage="#{bundle.CreateCuentasRequiredMessage_idCuenta}"/>
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_idPermiso}" for="idPermiso" />
+                        <p:inputText id="idPermiso" value="#{cuentasController.selected.idPermiso}" title="#{bundle.CreateCuentasTitle_idPermiso}" />
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_totalCuenta}" for="totalCuenta" />
+                        <p:inputText id="totalCuenta" value="#{cuentasController.selected.totalCuenta}" title="#{bundle.CreateCuentasTitle_totalCuenta}" />
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_ingresoPermiso}" for="ingresoPermiso" />
+                        <p:inputText id="ingresoPermiso" value="#{cuentasController.selected.ingresoPermiso}" title="#{bundle.CreateCuentasTitle_ingresoPermiso}" />
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_detalle}" for="detalle" />
+                        <p:inputText id="detalle" value="#{cuentasController.selected.detalle}" title="#{bundle.CreateCuentasTitle_detalle}" />
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{cuentasController.selected.fecha}" title="#{bundle.EditCuentasTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{cuentasController.selected.valor}" title="#{bundle.CreateCuentasTitle_valor}" />
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_idTipoCuenta}" for="idTipoCuenta" />
+                        <p:selectOneMenu id="idTipoCuenta" value="#{cuentasController.selected.idTipoCuenta}" >
+                            <f:selectItems value="#{tipoCuentaController.itemsAvailableSelectOne}"
+                                           var="idTipoCuentaItem"
+                                           itemValue="#{idTipoCuentaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCuentasLabel_idTipoDocumento}" for="idTipoDocumento" />
+                        <p:selectOneMenu id="idTipoDocumento" value="#{cuentasController.selected.idTipoDocumento}" >
+                            <f:selectItems value="#{tipoDocumentoController.itemsAvailableSelectOne}"
+                                           var="idTipoDocumentoItem"
+                                           itemValue="#{idTipoDocumentoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cuentasController.create}" value="#{bundle.Save}" update="display,:CuentasListForm:datalist,:growl" oncomplete="handleSubmit(args,'CuentasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CuentasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

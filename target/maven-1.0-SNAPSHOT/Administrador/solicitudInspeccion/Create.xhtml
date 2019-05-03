@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SolicitudInspeccionCreateDlg" widgetVar="SolicitudInspeccionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSolicitudInspeccionTitle}">
+            <h:form id="SolicitudInspeccionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{solicitudInspeccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_idSolicitudInspeccion}" for="idSolicitudInspeccion" />
+                        <p:inputText id="idSolicitudInspeccion" value="#{solicitudInspeccionController.selected.idSolicitudInspeccion}" title="#{bundle.CreateSolicitudInspeccionTitle_idSolicitudInspeccion}" required="true" requiredMessage="#{bundle.CreateSolicitudInspeccionRequiredMessage_idSolicitudInspeccion}"/>
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_fechaSolicitud}" for="fechaSolicitud" />
+                        <p:calendar id="fechaSolicitud" pattern="MM/dd/yyyy" value="#{solicitudInspeccionController.selected.fechaSolicitud}" title="#{bundle.EditSolicitudInspeccionTitle_fechaSolicitud}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{solicitudInspeccionController.selected.idUsuario}" title="#{bundle.CreateSolicitudInspeccionTitle_idUsuario}" />
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_latitud}" for="latitud" />
+                        <p:inputText id="latitud" value="#{solicitudInspeccionController.selected.latitud}" title="#{bundle.CreateSolicitudInspeccionTitle_latitud}" />
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_longitud}" for="longitud" />
+                        <p:inputText id="longitud" value="#{solicitudInspeccionController.selected.longitud}" title="#{bundle.CreateSolicitudInspeccionTitle_longitud}" />
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_idEstadoSolicitud}" for="idEstadoSolicitud" />
+                        <p:selectOneMenu id="idEstadoSolicitud" value="#{solicitudInspeccionController.selected.idEstadoSolicitud}" >
+                            <f:selectItems value="#{estadoSolicitudController.itemsAvailableSelectOne}"
+                                           var="idEstadoSolicitudItem"
+                                           itemValue="#{idEstadoSolicitudItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateSolicitudInspeccionLabel_idServicio}" for="idServicio" />
+                        <p:selectOneMenu id="idServicio" value="#{solicitudInspeccionController.selected.idServicio}" >
+                            <f:selectItems value="#{servicioController.itemsAvailableSelectOne}"
+                                           var="idServicioItem"
+                                           itemValue="#{idServicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{solicitudInspeccionController.create}" value="#{bundle.Save}" update="display,:SolicitudInspeccionListForm:datalist,:growl" oncomplete="handleSubmit(args,'SolicitudInspeccionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SolicitudInspeccionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

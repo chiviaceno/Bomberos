@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PermisosCreateDlg" widgetVar="PermisosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePermisosTitle}">
+            <h:form id="PermisosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePermisosLabel_idPermiso}" for="idPermiso" />
+                        <p:inputText id="idPermiso" value="#{permisosController.selected.idPermiso}" title="#{bundle.CreatePermisosTitle_idPermiso}" required="true" requiredMessage="#{bundle.CreatePermisosRequiredMessage_idPermiso}"/>
+                        <p:outputLabel value="#{bundle.CreatePermisosLabel_numeroPermiso}" for="numeroPermiso" />
+                        <p:inputText id="numeroPermiso" value="#{permisosController.selected.numeroPermiso}" title="#{bundle.CreatePermisosTitle_numeroPermiso}" />
+                        <p:outputLabel value="#{bundle.CreatePermisosLabel_responsable}" for="responsable" />
+                        <p:inputText id="responsable" value="#{permisosController.selected.responsable}" title="#{bundle.CreatePermisosTitle_responsable}" />
+                        <p:outputLabel value="#{bundle.CreatePermisosLabel_fechaEmision}" for="fechaEmision" />
+                        <p:calendar id="fechaEmision" pattern="MM/dd/yyyy" value="#{permisosController.selected.fechaEmision}" title="#{bundle.EditPermisosTitle_fechaEmision}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{permisosController.create}" value="#{bundle.Save}" update="display,:PermisosListForm:datalist,:growl" oncomplete="handleSubmit(args,'PermisosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PermisosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

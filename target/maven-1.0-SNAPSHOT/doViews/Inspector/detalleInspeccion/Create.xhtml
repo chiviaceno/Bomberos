@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DetalleInspeccionCreateDlg" widgetVar="DetalleInspeccionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDetalleInspeccionTitle}">
+            <h:form id="DetalleInspeccionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{detalleInspeccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDetalleInspeccionLabel_idDetalleInspeccion}" for="idDetalleInspeccion" />
+                        <p:inputText id="idDetalleInspeccion" value="#{detalleInspeccionController.selected.idDetalleInspeccion}" title="#{bundle.CreateDetalleInspeccionTitle_idDetalleInspeccion}" required="true" requiredMessage="#{bundle.CreateDetalleInspeccionRequiredMessage_idDetalleInspeccion}"/>
+                        <p:outputLabel value="#{bundle.CreateDetalleInspeccionLabel_fechaInspeccion}" for="fechaInspeccion" />
+                        <p:calendar id="fechaInspeccion" pattern="MM/dd/yyyy" value="#{detalleInspeccionController.selected.fechaInspeccion}" title="#{bundle.EditDetalleInspeccionTitle_fechaInspeccion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDetalleInspeccionLabel_idEstadoInspeccion}" for="idEstadoInspeccion" />
+                        <p:selectOneMenu id="idEstadoInspeccion" value="#{detalleInspeccionController.selected.idEstadoInspeccion}" >
+                            <f:selectItems value="#{estadoInspeccionController.itemsAvailableSelectOne}"
+                                           var="idEstadoInspeccionItem"
+                                           itemValue="#{idEstadoInspeccionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDetalleInspeccionLabel_idInspeccion}" for="idInspeccion" />
+                        <p:selectOneMenu id="idInspeccion" value="#{detalleInspeccionController.selected.idInspeccion}" >
+                            <f:selectItems value="#{inspeccionController.itemsAvailableSelectOne}"
+                                           var="idInspeccionItem"
+                                           itemValue="#{idInspeccionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDetalleInspeccionLabel_idSolicitudInspeccion}" for="idSolicitudInspeccion" />
+                        <p:selectOneMenu id="idSolicitudInspeccion" value="#{detalleInspeccionController.selected.idSolicitudInspeccion}" >
+                            <f:selectItems value="#{solicitudInspeccionController.itemsAvailableSelectOne}"
+                                           var="idSolicitudInspeccionItem"
+                                           itemValue="#{idSolicitudInspeccionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{detalleInspeccionController.create}" value="#{bundle.Save}" update="display,:DetalleInspeccionListForm:datalist,:growl" oncomplete="handleSubmit(args,'DetalleInspeccionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DetalleInspeccionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

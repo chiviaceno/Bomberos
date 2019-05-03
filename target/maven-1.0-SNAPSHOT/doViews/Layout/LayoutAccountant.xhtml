@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="layoutPrincipal.css"/>
+        <title>Contador</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+
+            <div id="menuPrincpal">
+
+                <h:form>  
+                    <p:growl id="messages"/>
+
+                    <p:menubar>
+                        <p:menuitem value="Inicio" outcome="/doViews/Contador/indexAccountant" />
+
+
+                        <p:submenu label="La Institución">
+                            <p:menuitem value="Quienes Somos" url="#" icon="pi pi-angle-double-left" />
+                            <p:menuitem value="Historia" url="#" icon="pi pi-angle-double-right" />
+                            <p:menuitem value="Símbolos" url="#" icon="pi pi-angle-double-right" />
+                        </p:submenu>
+                        <p:submenu label="Administrar">
+                            <p:submenu label="Contabilidad">
+                                <p:menuitem value="Tipo de Cuenta" outcome="/doViews/Contador/tipoCuenta/List" />
+                                <p:menuitem value="Cuentas" outcome="/doViews/Contador/cuentas/List" />
+                                <p:menuitem value="Detalle de Cuentas" outcome="/doViews/Contador/detalleCuentas/List" />
+                            </p:submenu>
+
+                        </p:submenu>
+
+                        <p:menuitem value="Noticias" outcome="/index" />
+                        <p:submenu label="Transparencia">
+                            <p:menuitem value="Ley de tranparencia" url="#" />
+                        </p:submenu>  
+                        <f:facet name="options">
+                            <h:form>
+
+                                <h:panelGrid columns="3" style="align-content: center">
+                                    <h:link value="Home" outcome="/doViews/Contador/indexAccountant" />
+                                    <p:commandButton icon="ui-icon-key" actionListener="#{menuController.cerrarSesion()}" title="Cerrar Sesión" action="/doViews/Login/Login?faces-redirect=true"/>
+
+
+                                </h:panelGrid>
+                            </h:form>
+                        </f:facet>
+
+
+                    </p:menubar>
+                </h:form>
+
+            </div>
+
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+    </h:body>
+
+</html>

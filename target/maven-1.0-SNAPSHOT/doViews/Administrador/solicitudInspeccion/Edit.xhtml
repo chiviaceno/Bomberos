@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SolicitudInspeccionEditDlg" widgetVar="SolicitudInspeccionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSolicitudInspeccionTitle}">
+            <h:form id="SolicitudInspeccionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{solicitudInspeccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_idSolicitudInspeccion}" for="idSolicitudInspeccion" />
+                        <p:inputText id="idSolicitudInspeccion" value="#{solicitudInspeccionController.selected.idSolicitudInspeccion}" title="#{bundle.EditSolicitudInspeccionTitle_idSolicitudInspeccion}" required="true" requiredMessage="#{bundle.EditSolicitudInspeccionRequiredMessage_idSolicitudInspeccion}"/>
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_fechaSolicitud}" for="fechaSolicitud" />
+                        <p:calendar id="fechaSolicitud" pattern="MM/dd/yyyy" value="#{solicitudInspeccionController.selected.fechaSolicitud}" title="#{bundle.EditSolicitudInspeccionTitle_fechaSolicitud}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{solicitudInspeccionController.selected.idUsuario}" title="#{bundle.EditSolicitudInspeccionTitle_idUsuario}" />
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_latitud}" for="latitud" />
+                        <p:inputText id="latitud" value="#{solicitudInspeccionController.selected.latitud}" title="#{bundle.EditSolicitudInspeccionTitle_latitud}" />
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_longitud}" for="longitud" />
+                        <p:inputText id="longitud" value="#{solicitudInspeccionController.selected.longitud}" title="#{bundle.EditSolicitudInspeccionTitle_longitud}" />
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_idEstadoSolicitud}" for="idEstadoSolicitud" />
+                        <p:selectOneMenu id="idEstadoSolicitud" value="#{solicitudInspeccionController.selected.idEstadoSolicitud}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estadoSolicitudController.itemsAvailableSelectOne}"
+                                           var="idEstadoSolicitudItem"
+                                           itemValue="#{idEstadoSolicitudItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSolicitudInspeccionLabel_idServicio}" for="idServicio" />
+                        <p:selectOneMenu id="idServicio" value="#{solicitudInspeccionController.selected.idServicio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{servicioController.itemsAvailableSelectOne}"
+                                           var="idServicioItem"
+                                           itemValue="#{idServicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{solicitudInspeccionController.update}" value="#{bundle.Save}" update="display,:SolicitudInspeccionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SolicitudInspeccionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SolicitudInspeccionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

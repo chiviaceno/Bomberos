@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InspeccionViewDlg" widgetVar="InspeccionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInspeccionTitle}">
+            <h:form id="InspeccionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inspeccionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idInspeccion}"/>
+                        <h:outputText value="#{inspeccionController.selected.idInspeccion}" title="#{bundle.ViewInspeccionTitle_idInspeccion}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idEmpleado}"/>
+                        <h:outputText value="#{inspeccionController.selected.idEmpleado}" title="#{bundle.ViewInspeccionTitle_idEmpleado}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoUno}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoUno}" title="#{bundle.ViewInspeccionTitle_requisitoUno}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoDos}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoDos}" title="#{bundle.ViewInspeccionTitle_requisitoDos}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoTres}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoTres}" title="#{bundle.ViewInspeccionTitle_requisitoTres}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoCuatro}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoCuatro}" title="#{bundle.ViewInspeccionTitle_requisitoCuatro}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoCinco}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoCinco}" title="#{bundle.ViewInspeccionTitle_requisitoCinco}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoSeis}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoSeis}" title="#{bundle.ViewInspeccionTitle_requisitoSeis}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoSiete}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoSiete}" title="#{bundle.ViewInspeccionTitle_requisitoSiete}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoOcho}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoOcho}" title="#{bundle.ViewInspeccionTitle_requisitoOcho}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoNueve}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoNueve}" title="#{bundle.ViewInspeccionTitle_requisitoNueve}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoDiez}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoDiez}" title="#{bundle.ViewInspeccionTitle_requisitoDiez}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoOnce}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoOnce}" title="#{bundle.ViewInspeccionTitle_requisitoOnce}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_requisitoDoce}"/>
+                        <h:outputText value="#{inspeccionController.selected.requisitoDoce}" title="#{bundle.ViewInspeccionTitle_requisitoDoce}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_observaciones}"/>
+                        <h:outputText value="#{inspeccionController.selected.observaciones}" title="#{bundle.ViewInspeccionTitle_observaciones}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_NSolicitud}"/>
+                        <h:outputText value="#{inspeccionController.selected.NSolicitud}" title="#{bundle.ViewInspeccionTitle_NSolicitud}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoDiez}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoDiez}" title="#{bundle.ViewInspeccionTitle_idRequisitoDiez}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoUno}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoUno}" title="#{bundle.ViewInspeccionTitle_idRequisitoUno}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoOnce}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoOnce}" title="#{bundle.ViewInspeccionTitle_idRequisitoOnce}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoNueve}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoNueve}" title="#{bundle.ViewInspeccionTitle_idRequisitoNueve}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoDoce}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoDoce}" title="#{bundle.ViewInspeccionTitle_idRequisitoDoce}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoDos}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoDos}" title="#{bundle.ViewInspeccionTitle_idRequisitoDos}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoTres}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoTres}" title="#{bundle.ViewInspeccionTitle_idRequisitoTres}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoCuatro}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoCuatro}" title="#{bundle.ViewInspeccionTitle_idRequisitoCuatro}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoCinco}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoCinco}" title="#{bundle.ViewInspeccionTitle_idRequisitoCinco}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoSeis}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoSeis}" title="#{bundle.ViewInspeccionTitle_idRequisitoSeis}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoSiete}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoSiete}" title="#{bundle.ViewInspeccionTitle_idRequisitoSiete}"/>
+                        <h:outputText value="#{bundle.ViewInspeccionLabel_idRequisitoOcho}"/>
+                        <h:outputText value="#{inspeccionController.selected.idRequisitoOcho}" title="#{bundle.ViewInspeccionTitle_idRequisitoOcho}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InspeccionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

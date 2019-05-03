@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title><ui:insert name="title">Contador</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <ui:insert name="head"/>
+    </h:head>
+
+    <h:body >
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}" style="background-color: #EDBABA !important;">
+                <h:form id="menuForm">
+                    <p:menubar >
+                        <p:menuitem value="Inicio" outcome="/doViews/Contador/indexAccountant" />
+
+
+                        <p:submenu label="La Institución">
+                            <p:menuitem value="Quienes Somos" url="#" icon="pi pi-angle-double-left" />
+                            <p:menuitem value="Historia" url="#" icon="pi pi-angle-double-right" />
+                            <p:menuitem value="Símbolos" url="#" icon="pi pi-angle-double-right" />
+                        </p:submenu>
+                        <p:submenu label="Administrar">
+                            <p:submenu label="Contabilidad">
+                                <p:menuitem value="Tipo de Cuenta" outcome="/doViews/Administrador/tipoCuenta/List" />
+                                <p:menuitem value="Cuentas" outcome="/doViews/Contador/cuentas/List" />
+                                <p:menuitem value="Detalle de Cuentas" outcome="/doViews/Contador/detalleCuentas/List" />
+                            </p:submenu>
+
+                        </p:submenu>
+
+                        <p:menuitem value="Noticias" outcome="/index" />
+                        <p:submenu label="Transparencia">
+                            <p:menuitem value="Ley de tranparencia" url="#" />
+                        </p:submenu>   
+                        
+                        <f:facet name="options">
+                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" title="Cerrar Session" action="/doViews/Login/Login?faces-redirect=true"/>
+                        </f:facet>
+                    </p:menubar>
+
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="60">
+                <ui:insert name="footer"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>
