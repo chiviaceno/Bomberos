@@ -35,6 +35,7 @@ public void init(){
     
     public void registra(){
     try{
+        //usuarioEJB2.find(1)
        // usuario.setNombres(getNombres());
         usuario.setTipo("Usuario");
         usuarioEJB2.create(usuario);

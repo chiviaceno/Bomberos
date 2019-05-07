@@ -100,7 +100,7 @@ public class EstadoSolicitud implements Serializable {
 
     @Override
     public String toString() {
-        return "com.blac.model.EstadoSolicitud[ idEstadoSolicitud=" + idEstadoSolicitud + " ]";
+        return "" + nombreEstadoSolicitud + "";
     }
     
 }

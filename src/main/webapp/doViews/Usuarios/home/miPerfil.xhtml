@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:event listener="#{perfilController.isAdmin}" type="preRenderView" />
+<h:body>
+
+        <ui:composition template="./../../template.xhtml">
+
+            <ui:define name="body">
+                	
+<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+   
+    <p:fieldset legend="Datos" toggleable="true" toggleSpeed="500">
+        <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel id="nombres" value="Nombres"/>
+            <h:inputText value="#{perfilController.usuario.nombres}"/>
+            
+            <h:outputLabel id="apellidos" value="Apellidos"/>
+            <h:inputText value="#{perfilController.apellidos}"/>
+            
+            <h:outputLabel id="clave" value="Clave"/>
+            <p:inputText type="password" id="txtClave" value="#{perfilController.clave}" required="true"/>
+                
+            <h:outputLabel id="email" value="Email"/>
+            <h:inputText value="#{perfilController.email}"/>
+            
+            <h:outputLabel id="telefono" value="Telefono"/>
+            <h:inputText value="#{perfilController.telefono}"/>
+
+            
+            <p:commandButton icon="ui-icon-check"  ajax="false" value="Actualizar" update="mensaje" actionListener="#{miPerfilController.actualizar()}" action="index"/>
+            
+        </h:panelGrid>
+    </p:fieldset>
+</h:form>
+                
+    
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
