@@ -16,6 +16,9 @@
         <ui:define name="body">
             <h:form id="InspeccionListForm">
                 <p:panel header="#{bundle.ListInspeccionTitle}">
+                    
+                    
+                    
                     <p:dataTable id="datalist" value="#{inspeccionController.items}" var="item"
                                  selectionMode="single" selection="#{inspeccionController.selected}"
                                  paginator="true"
